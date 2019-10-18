@@ -10,6 +10,10 @@ const Login = (props) => {
   });
 
 
+    const alertError = () => {
+      alert(`Invalid Login Credentials; Try again. Default credentials test:test`);
+    }
+
     const handleChange = e => {
       setCredentials({
         ...credentials,
@@ -28,7 +32,10 @@ const Login = (props) => {
         props.history.push('/bubbles-page');
       })
       .then(() => console.log(localStorage.token))
-      .catch(err => console.log(err))
+      .catch(err => {
+        console.log(err);
+        alertError();
+      })
     }
 
 
