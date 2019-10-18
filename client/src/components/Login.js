@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 const Login = (props) => {
-  console.log(props);
+  // console.log(props);
 
   const [credentials, setCredentials] = useState({
       username: '',
@@ -25,6 +25,7 @@ const Login = (props) => {
       .then(response => {
         // console.log(response);
         localStorage.setItem('token', response.data.payload);
+        props.history.push('/bubbles-page');
       })
       .then(() => console.log(localStorage.token))
       .catch(err => console.log(err))
