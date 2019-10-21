@@ -1,3 +1,4 @@
+init
 # Sprint Challenge: Advanced Web Applications - React Bubbles
 
 This challenge allows you to practice the concepts and techniques learned over the past Sprint and apply them in a concrete project. This Sprint explored Advanced Web Applications, focusing on testing, client-side authentication, hosting web apps, and PUT and DELETE requests.
@@ -29,9 +30,28 @@ In this project you will create a login page and request a token from the server
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] Explain what a token is used for.
+
+    A token is an encrypted string that is returned to client when valid user credentials are provided. The token itself authorizes users to access protected/private data, serving as a kind of access pass that is included in the request header sent to the webserver. 
+
 - [ ] What steps can you take in your web apps to keep your data secure?
+
+    To gate access to protected data, a combination of login system and protected pages/routes can be put in place. This requires a user to provide valid credentials. When valid credentials are provided, a token is returned. The presence of the token in request headers then allows the client access to pages or data that are explicitly protected. If invalid credentials are provided, the client is redirected to public pages/public-facing data. 
+
+
 - [ ] Describe how web servers work.
+
+   A web server is a program that exists on a physical system (server), receives incoming requests, validates the request, and performs some operation on the physical server (CRUD), and returns a confirmation. 
+  
+   Site/Application files, databases, assets, etc are all physically stored on the server. The physical server is networked to the internet or private network. The web server sits between the network/internet and the physical system. Incoming traffic/requests made to specific ports are 'intercepted' by the webserver. The webserver checks the incoming requests for validity and authorization, and if the requester is authorized it returns information/data or performs a server-side operation, and sends some form of confirmation. 
+
+
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+
+    Create --> Post --> provides a data object to the webserver which is either written to DB or stored, or used to perform client validation. 
+    Read --> Get --> requests/retrieves existing data from a webserver.
+    Update --> Put --> Specifies existing data and provides updated data to the webserver to replace the specified existing data on the server.
+    Delete --> Delete --> Specifies existing data to be removed from the server/DB. 
+
 
 
 ## Project Set Up
@@ -65,16 +85,16 @@ The MVP of this project will be broken up between 2 stages. Follow each step.
 
 Build a login form to authenticate your users.
 
-- [ ] Construct an AXIOS request to retrieve a token from the server. You'll use this token to interact with the API
-- [ ] Save the token to localStorage
-- [ ] Build a `axiosWithAuth` module to create an instance of axios with the authentication header
-- [ ] Build a `PrivateRoute` component and use it to protect a route that renders the `BubblesPage` component
+- [x] Construct an AXIOS request to retrieve a token from the server. You'll use this token to interact with the API
+- [x] Save the token to localStorage
+- [x] Build a `axiosWithAuth` module to create an instance of axios with the authentication header
+- [x] Build a `PrivateRoute` component and use it to protect a route that renders the `BubblesPage` component
 
 ### Stage 2 - Consuming the API
 
-- [ ] When `BubblePages` renders, make a GET request to fetch the color data for your bubbles.
-- [ ] In `ColorList.js`, complete the `saveEdit` and `deleteColor` functions to make AJAX requests to the API to edit/delete data
-- [ ] Watch and enjoy as your app responds to updates in the data. Check out `Bubbles.js` to see how this is built.
+- [x] When `BubblePages` renders, make a GET request to fetch the color data for your bubbles.
+- [x] In `ColorList.js`, complete the `saveEdit` and `deleteColor` functions to make AJAX requests to the API to edit/delete data
+- [x] Watch and enjoy as your app responds to updates in the data. Check out `Bubbles.js` to see how this is built.
 
 ### API Documentation
 
